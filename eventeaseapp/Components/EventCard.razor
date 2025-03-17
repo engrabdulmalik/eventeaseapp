@@ -7,6 +7,33 @@
 
     [Parameter]
     public string? EventLocation { get; set; }
+
+    private string? validationMessage;
+
+    protected override void OnParametersSet()
+    {
+        if (string.IsNullOrWhiteSpace(EventName))
+        {
+            validationMessage = "Event name is required.";
+        }
+        else if (EventDate == default)
+        {
+            validationMessage = "Event date is required.";
+        }
+        else if (string.IsNullOrWhiteSpace(EventLocation))
+        {
+            validationMessage = "Event location is required.";
+        }
+        else
+        {
+            validationMessage = null;
+        }
+    }
+}
+
+@if (!string.IsNullOrEmpty(validationMessage))
+{
+    <div class="alert alert-danger">@validationMessage</div>
 }
 
 <div class="event-card">

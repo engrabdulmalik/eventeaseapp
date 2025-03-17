@@ -1,8 +1,52 @@
 @page "/event-registration"
+@using System.ComponentModel.DataAnnotations
 
 <h3>Event Registration</h3>
 
-<!-- Add your event registration content here -->
+<EditForm Model="@registrationModel" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
 
-<a href="/events">Back to Event List</a>
-<a href="/event-details">Go to Event Details</a>
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <InputText id="name" class="form-control" @bind-Value="registrationModel.Name" />
+        <ValidationMessage For="@(() => registrationModel.Name)" />
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <InputText id="email" class="form-control" @bind-Value="registrationModel.Email" />
+        <ValidationMessage For="@(() => registrationModel.Email)" />
+    </div>
+
+    <div class="mb-3">
+        <label for="event" class="form-label">Event</label>
+        <InputText id="event" class="form-control" @bind-Value="registrationModel.Event" />
+        <ValidationMessage For="@(() => registrationModel.Event)" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+</EditForm>
+
+@code {
+    private RegistrationModel registrationModel = new RegistrationModel();
+
+    private void HandleValidSubmit()
+    {
+        // Handle the valid form submission (e.g., save the registration data)
+        Console.WriteLine("Registration successful!");
+    }
+
+    public class RegistrationModel
+    {
+        [Required(ErrorMessage = "Name is required")]
+        public string Name { get; set; }
+
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid email address")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Event is required")]
+        public string Event { get; set; }
+    }
+}

@@ -1,4 +1,4 @@
-namespace EventEaseApp.Models
+namespace eventeaseapp.Models
 {
     public class Event
     {

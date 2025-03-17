@@ -1,10 +1,14 @@
-using eventeaseapp.Components;
+using eventeaseapp.Services;
+using eventeaseapp.Components; // Add this line to include the namespace for the App component
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+// Register UserSessionService
+builder.Services.AddScoped<UserSessionService>();
 
 var app = builder.Build();
 
@@ -18,11 +22,10 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-
 app.UseAntiforgery();
 
 app.MapStaticAssets();
-app.MapRazorComponents<App>()
+app.MapRazorComponents<eventeaseapp.Components.App>() // Ensure the correct namespace is used here
     .AddInteractiveServerRenderMode();
 
 app.Run();

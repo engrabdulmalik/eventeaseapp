@@ -1,8 +1,65 @@
 @page "/events"
+@using eventeaseapp.Models
 
 <h3>Event List</h3>
 
-<!-- Add your event list content here -->
+@if (events == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <ul>
+        @foreach (var eventItem in paginatedEvents)
+        {
+            <li>@eventItem.Name - @eventItem.Date.ToString("MMMM dd, yyyy") - @eventItem.Location</li>
+        }
+    </ul>
 
-<a href="/event-details">Go to Event Details</a>
-<a href="/event-registration">Go to Event Registration</a>
+    <button @onclick="PreviousPage" disabled="@(!HasPreviousPage)">Previous</button>
+    <button @onclick="NextPage" disabled="@(!HasNextPage)">Next</button>
+}
+
+@code {
+    private List<Event>? events;
+    private int currentPage = 1;
+    private int pageSize = 10;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Load events (replace with your data loading logic)
+        events = await LoadEventsAsync();
+    }
+
+    private List<Event> paginatedEvents => events.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
+
+    private bool HasPreviousPage => currentPage > 1;
+    private bool HasNextPage => events != null && currentPage * pageSize < events.Count;
+
+    private void PreviousPage()
+    {
+        if (HasPreviousPage)
+        {
+            currentPage--;
+        }
+    }
+
+    private void NextPage()
+    {
+        if (HasNextPage)
+        {
+            currentPage++;
+        }
+    }
+
+    private Task<List<Event>> LoadEventsAsync()
+    {
+        // Mock data loading (replace with your actual data loading logic)
+        return Task.FromResult(new List<Event>
+        {
+            new Event { Name = "Event 1", Date = DateTime.Now, Location = "Location 1" },
+            new Event { Name = "Event 2", Date = DateTime.Now.AddDays(1), Location = "Location 2" },
+            // Add more events as needed
+        });
+    }
+}
