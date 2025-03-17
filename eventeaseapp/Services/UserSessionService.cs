@@ -4,6 +4,7 @@ namespace eventeaseapp.Services
     {
         public string UserName { get; private set; }
         public bool IsLoggedIn { get; private set; }
+        public List<string> AttendedEvents { get; private set; } = new List<string>();
 
         public event Action OnChange;
 
@@ -18,7 +19,17 @@ namespace eventeaseapp.Services
         {
             UserName = string.Empty;
             IsLoggedIn = false;
+            AttendedEvents.Clear();
             NotifyStateChanged();
+        }
+
+        public void AttendEvent(string eventName)
+        {
+            if (!AttendedEvents.Contains(eventName))
+            {
+                AttendedEvents.Add(eventName);
+                NotifyStateChanged();
+            }
         }
 
         private void NotifyStateChanged() => OnChange?.Invoke();

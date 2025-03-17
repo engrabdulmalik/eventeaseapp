@@ -2,6 +2,7 @@
 
 @using eventeaseapp.Models
 @using eventeaseapp.Components
+@inject eventeaseapp.Services.UserSessionService UserSession
 
 @code {
     private Event myEvent = new Event
@@ -10,6 +11,19 @@
         Date = new DateTime(2025, 3, 17),
         Location = "New York, NY"
     };
+
+    private void MarkAttendance()
+    {
+        if (UserSession.IsLoggedIn)
+        {
+            UserSession.AttendEvent(myEvent.Name);
+        }
+        else
+        {
+            Console.WriteLine("Please log in to mark attendance.");
+        }
+    }
 }
 
 <EventCard EventName="@myEvent.Name" EventDate="@myEvent.Date" EventLocation="@myEvent.Location" />
+<button @onclick="MarkAttendance" class="btn btn-primary">Mark Attendance</button>

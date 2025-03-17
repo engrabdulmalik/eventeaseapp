@@ -1,0 +1,19 @@
+@inject eventeaseapp.Services.UserSessionService UserSession
+
+<h3>Attendance Tracker</h3>
+
+@if (UserSession.IsLoggedIn)
+{
+    <p>Welcome, @UserSession.UserName!</p>
+    <h4>Attended Events:</h4>
+    <ul>
+        @foreach (var eventName in UserSession.AttendedEvents)
+        {
+            <li>@eventName</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Please log in to see your attended events.</p>
+}
