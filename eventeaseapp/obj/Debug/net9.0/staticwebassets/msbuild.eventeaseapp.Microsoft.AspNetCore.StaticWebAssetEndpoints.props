@@ -16,13 +16,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\eventeaseapp.bmgntdnazy.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"bmgntdnazy"},{"Name":"integrity","Value":"sha256-HctpGFZQlIzY7bfjaoLtw/GmFzJcjktcBM21SH5lu9U="},{"Name":"label","Value":"_content/eventeaseapp/eventeaseapp.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5766"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022HctpGFZQlIzY7bfjaoLtw/GmFzJcjktcBM21SH5lu9U=\u0022"},{"Name":"Last-Modified","Value":"Mon, 17 Mar 2025 11:52:36 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5766"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022HctpGFZQlIzY7bfjaoLtw/GmFzJcjktcBM21SH5lu9U=\u0022"},{"Name":"Last-Modified","Value":"Mon, 17 Mar 2025 13:47:52 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/eventeaseapp/eventeaseapp.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\eventeaseapp.bmgntdnazy.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-HctpGFZQlIzY7bfjaoLtw/GmFzJcjktcBM21SH5lu9U="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5766"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022HctpGFZQlIzY7bfjaoLtw/GmFzJcjktcBM21SH5lu9U=\u0022"},{"Name":"Last-Modified","Value":"Mon, 17 Mar 2025 11:52:36 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5766"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022HctpGFZQlIzY7bfjaoLtw/GmFzJcjktcBM21SH5lu9U=\u0022"},{"Name":"Last-Modified","Value":"Mon, 17 Mar 2025 13:47:52 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/eventeaseapp/favicon.ifv42okdf2.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.png'))</AssetFile>
