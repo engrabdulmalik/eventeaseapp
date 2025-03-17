@@ -1,0 +1,13 @@
+@page "/"
+
+@using EventEaseApp.Models
+@code {
+    private Event myEvent = new Event
+    {
+        Name = "Sample Event",
+        Date = new DateTime(2025, 3, 17),
+        Location = "New York, NY"
+    };
+}
+
+<EventCard EventName="myEvent.Name" EventDate="myEvent.Date" EventLocation="myEvent.Location" />
